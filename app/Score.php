@@ -13,4 +13,8 @@ class Score extends Model
     protected $fillable = [
         'player_game_id', 'user_id', 'user_input', 'level', 'user_score'
     ];
+
+    public function player(){
+        return $this->belongsTo('App\User','user_id');
+    }
 }

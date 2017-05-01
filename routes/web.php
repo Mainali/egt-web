@@ -11,6 +11,7 @@
 |
 */
 
+define("PREFIX", env('PREFIX','/'));
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,3 +40,10 @@ Route::group(['prefix' => 'api'], function () {
 
 Route::get('/admin','AdminPanel\LoginController@getLogin');
 Route::get('/stat', 'DashController@index');
+
+Route::post('/dologin','AdminPanel\LoginController@doLogin');
+Route::get('/system/logout','Auth\LoginController@logout');
+
+Route::get('/games/dash', 'DashController@gamesDash');
+Route::get('/home', 'DashController@index');
+Route::get('/page/decision-graph', 'DashController@decisionGraph');

@@ -3,16 +3,13 @@
 @section('content')
 
 @if (count($errors) > 0)
+
 <div class="col-md-3 center-margin text-center alert-danger alert" style="margin-bottom: 10px; border-radius: 5px; padding-top: 10px; padding-bottom: 10px;">
-  @if($errors->first('throttle'))
-    {{$errors->first('throttle')}}
-  @else
-    Error! Username / Password Incorrect
-  @endif
+ {{$errors[0]}}
 </div>
 @endif
 <div class="col-md-3 center-margin">
-    <form class="form-signin" role="form" method="POST" action="{{ url('/system/login') }}">
+    <form class="form-signin" role="form" method="POST" action="{{ url('/dologin') }}">
       {{ csrf_field() }}
         <div class="content-box wow bounceInDown modal-content">
             <h3 class="content-box-header content-box-header-alt bg-default">

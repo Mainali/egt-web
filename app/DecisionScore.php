@@ -11,4 +11,8 @@ class DecisionScore extends Model
     public $timestamps = false;
 
     protected $fillable = ['user_id','final_value'];
+
+    public function player(){
+        return $this->belongsTo('App\User','user_id');
+    }
 }
